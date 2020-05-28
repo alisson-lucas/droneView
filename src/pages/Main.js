@@ -3,7 +3,9 @@ import {View, StyleSheet, Image, Text, TouchableOpacity, ScrollView} from 'react
 import MapView, { Marker, Callout } from 'react-native-maps'
 import {requestPermissionsAsync, getCurrentPositionAsync} from 'expo-location'
 
-export default function Main() {
+import Drone from '../../assets/icons/drone.png'
+
+export default function Main({navigation}) {
   const [currentRegion, setCurrentRegion] = useState(null);
 
     useEffect(() => {
@@ -36,24 +38,24 @@ export default function Main() {
   return (
     <View style={styles.container}>
       <MapView initialRegion={currentRegion} style={styles.map}>
-          <Marker coordinate={{latitude: -8.0521253 , longitude: -34.8969381}}>
-              {/* <Image style={styles.avatar} source={petShop2} /> */}
+          <Marker coordinate={{latitude: -8.094833 , longitude: -34.972750}}>
+              <Image style={styles.icone} source={Drone} />
 
-              {/* <Callout>
+              <Callout onPress={() => navigation.navigate(`Video`)}>
                   <View style={styles.callout}>
-                      <Text style={styles.name}>petShop2</Text>
-                      <Text style={styles.bio}>Servicos de pet shop</Text>
-                      <Text styles={styles.services}>Banho, Tosa, Hotelzinho</Text>
+                      <Text style={styles.name}>Voo de Monitoramento de Temperatura</Text>
+                      <Text style={styles.local}>Jaboatão dos Guararapes</Text>
+                      <Text styles={styles.piloto}>PcMarques</Text>
                   </View>
-              </Callout> */}
+              </Callout>
           </Marker>
       </MapView>
       <View style={styles.infos}>
         <ScrollView>
           <View style={styles.textoContainer}>
             <View style={styles.locaisContainer}>
-              <TouchableOpacity>
-                <Text style={styles.textos}>Local 1 - 19/05/2020</Text>
+              <TouchableOpacity onPress={() => navigation.navigate(`Video`)}>
+                <Text style={styles.textos}>Local 1 - 20/05/2020</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.locaisContainer}>
@@ -109,13 +111,12 @@ const styles = StyleSheet.create({
       fontSize: 18
     },
 
-    avatar: {
-        
+    icone: {
         width: 54,
         height: 54,
-        borderWidth: 4,
-        borderRadius: 4,
-        borderColor: '#fff'
+        // borderWidth: 4,
+        // borderRadius: 4,
+        // borderColor: '#fff'
     },
 
     callout: {
@@ -127,12 +128,12 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
 
-    bio: {
+    local: {
         color: '#666',
         marginTop: 5
     },
 
-    services: {
+    piloto: {
         marginTop: 5
     }
 })
