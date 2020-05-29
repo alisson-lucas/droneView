@@ -1,6 +1,6 @@
 
 import React, {useRef, useState} from 'react';
-import {View, StyleSheet,Text, ScrollView} from 'react-native';
+import {View, StyleSheet,Text} from 'react-native';
 import YoutubePlayer from 'react-native-youtube-iframe';
  
 
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
     },
     titulo: {
         color: '#fff',
-        // fontWeight: 'bold',
         fontSize: 20
     },
     descricao: {
@@ -93,6 +92,4 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginTop: 10
     }
-    
-    
 })
